@@ -4,10 +4,10 @@
 
 int test()
 {
-	char* test = "/* don't remove me*/";
-	char a = '/';
-	char b = '*';
-	/* comment */
+    char* test = "/* don't remove me*/";
+    char a = '/';
+    char b = '*';
+    /* comment */
 
-	char* what_wrong = " ;
+    char* what_wrong = "\"";
 } /* test */
