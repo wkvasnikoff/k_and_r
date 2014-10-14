@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <limits.h>
 #include <float.h>
 /*
@@ -20,7 +19,6 @@ int main()
     printf("ulong: %d to %lu\n", 0, ULONG_MAX);
 
     printf("\n***** By Direct Computation *****\n");
-
     char ch = -1, ch2;
     short sh = -1, sh2;
     int i = -1, i2;
@@ -64,7 +62,9 @@ int main()
     printf("uint: %u to %u\n", 0, --uint);
     printf("ulong: %u to %lu\n", 0, --ulong);
 
-    //TODO: add float
+    printf("\n***** Using float.h *****\n");
+    printf("float: %e to %e\n", FLT_MIN, FLT_MAX);
+    printf("double: %e to %e\n", DBL_MIN, DBL_MAX);
 
-    exit(0);
+    return 0;
 }
