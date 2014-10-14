@@ -4,7 +4,7 @@
 int main(int argc, char* argv[])
 {
     char c, prev;
-    enum state {NORMAL, STRING, COMMENT};
+    enum state {NORMAL, STRING, COMMENT, CHAR};
     int state = NORMAL;
 
     int stack[30];
@@ -24,6 +24,8 @@ int main(int argc, char* argv[])
             } else if(c == '"') {
                 state = STRING;
                 printf("string\n");
+            } else if(c == '\'') {
+                state = CHAR;
             }
 
             prev = c;
@@ -31,7 +33,6 @@ int main(int argc, char* argv[])
         } else if(state == STRING) {
             if(prev == '\\' && c == '\\') {
                 prev = 0;
-                continue;
             } else if(c == '"') {
                 if(prev != '\\') {
                     state = NORMAL;
@@ -41,7 +42,12 @@ int main(int argc, char* argv[])
             if(prev == '*' && c == '/') {
                 prev = 0;
                 state = NORMAL;
-                continue;
+            }
+        } else if(state == CHAR) {
+            if(prev == '\\' && c == '\\') {
+                prev = 0;
+            } else if(c == '\'' && prev != '\\') {
+                state = NORMAL;
             }
         }
 
