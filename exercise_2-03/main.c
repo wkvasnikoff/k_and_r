@@ -4,7 +4,7 @@
 // digits (including an optional 0x or 0X) into its equivalent integer value.
 // The allowable digits are 0 through 9, a through f, and A through F.
 //
-int power(int base, int power)
+int power(int base, unsigned int power)
 {
     int result = 1;
     int i;
