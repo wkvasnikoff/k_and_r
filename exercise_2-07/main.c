@@ -5,16 +5,33 @@
  */
 
 #include <stdio.h>
+void printb(unsigned char x)
+{
+    unsigned char bit = 1;
+    while (x) {
+        if (x & one) {
+            printf("1");
+        } else {
+            printf("0");
+        }
 
-int invert(x, p, n)
+        x <<= 1;
+    }
+    printf("\n");
+}
+
+int invert(unsigned char x, int p, int n)
 {
 
 
+    return x;
 }
 
 int main()
 {
+    unsigned char x = 2;
 
+    printf("%u\n", x);
 
-    return 0;
+    printb(x);
 }
