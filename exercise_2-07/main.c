@@ -7,9 +7,11 @@
 #include <stdio.h>
 void printb(unsigned char x)
 {
-    unsigned char bit = 1;
-    while (x) {
-        if (x & one) {
+    unsigned char bit = 0x80;
+    int n_bits = 8;
+
+    for (int i = 0; i < n_bits; i++) {
+        if (x & bit) {
             printf("1");
         } else {
             printf("0");
@@ -20,18 +22,23 @@ void printb(unsigned char x)
     printf("\n");
 }
 
+/*
+ * Inverting p with length n on x counting from least significant side
+ */
 int invert(unsigned char x, int p, int n)
 {
+    unsigned char mask = 0;
+    for (int i = p; i < p + n; i++) {
+        mask |= 1 << i;
+    }
 
-
-    return x;
+    return mask ^ x;
 }
 
 int main()
 {
     unsigned char x = 2;
 
-    printf("%u\n", x);
-
+    x = invert(x, 1, 2);
     printb(x);
 }
