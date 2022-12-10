@@ -16,3 +16,6 @@
 *.out
 *.app
 run
+
+# vim swap
+*.swp
